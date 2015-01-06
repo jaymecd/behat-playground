@@ -1,0 +1,10 @@
+/composer.lock
+/composer.phar
+
+/bin/*
+!/bin/run-phantomjs.sh
+!/bin/run-behat.sh
+
+/node_modules/
+/vendor/
+/build/

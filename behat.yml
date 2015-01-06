@@ -1,0 +1,29 @@
+default:
+  gherkin:
+    filters:
+      tags: ~@wip && ~@tbd
+  formatters:
+    pretty:
+      paths: false
+  suites:
+    default:
+      path: %paths.base%/features
+      contexts:
+        - FeatureContext
+        - Behat\MinkExtension\Context\MinkContext
+        - behatch:debug:
+            screenshotDir: %paths.base%/features/screenshots
+  extensions:
+    Sanpi\Behatch\Extension: ~
+    Behat\MinkExtension:
+      base_url: http://en.wikipedia.org/
+      browser_name: chrome
+      default_session: default
+      javascript_session: javascript
+      sessions:
+        default:
+          goutte: ~
+        javascript:
+          selenium2:
+            wd_host: http://127.0.0.1:4444/wd/hub
+            browser: %mink.browser_name%
